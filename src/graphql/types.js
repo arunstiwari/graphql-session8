@@ -11,6 +11,10 @@ const typeDefs = gql`
     addNewUser(user: UserInput): User
   }
 
+  type Subscription {
+      userAdded: User
+  }
+
   input UserInput {
     name: String
     age: String
