@@ -112,18 +112,18 @@ const fetchUserById = async (id) => {
 + Now go to the playground to execute the user query as shown below
 ![Query2](./screenshot/screenshot2.png)
 
-### 6. Query by alias
+### 7. Query by alias
 + Now let us run the query as shown below in the screenshot
 ![Query3](./screenshot/screenshot3.png)
 + This issue can be resolved by using different alias name for the user query. (See the screenshot)
 ![Query4](./screenshot/screenshot4.png)
 
-### 7. Fragments
+### 8. Fragments
 + Fragments allows us to define the set of fields of particular Type and it can be reused in Query
 + This helps us avoid typing of query at multiple places. See the screenshot below
 ![Query5](./screenshot/screenshot5.png)
 
-### 8. Define the Mutation
+### 9. Define the Mutation
 + Let us add the GraphQL mutation to add new user
 + Modify the src/graphql/types.js as shown below:
 ```js
@@ -176,7 +176,7 @@ const createNewUser = async (args) => {
 + Execute the mutation query by going to the playground url as shown in the screenshot below:
 ![Query6](./screenshot/screenshot6.png)
 
-### 8. Input type
+### 10. Input type
 + Now if we have any mutation operation which takes lot of input field, then passing those fields as an argument is more cumbersome.
 + Graphql supports another type called input.
 + Let us define an input type in src/graphql/types.js
@@ -207,7 +207,7 @@ const createNewUser = async (args) => {
     }    
 }
 ```
-### 9. Subscription type
+### 11. Subscription type
 + Let us add a new npm dependency to support subscription 
 ```bash
 npm i redis graphql-redis-subscriptions
@@ -263,7 +263,7 @@ Subscription: {
 + Execute this in the playground as shown in the screenshot below
 ![Query7](./screenshot/screenshot7.png)
 
-### 9. Graphql Interface type
+### 12. Graphql Interface type
 + Let us refactor the User type in the src/graphql/types.js and make it an interface
 + Also let us provide three different implementation of User (CorporateUser, NormalUser, DefaultUser)
 ```js
