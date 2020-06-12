@@ -7,7 +7,7 @@ const typeDefs = gql`
   }
 
   type Mutation {
-    addNewUser(user: UserInput): User
+    addNewUser(user: UserInput): User,
   }
 
   type Subscription {
