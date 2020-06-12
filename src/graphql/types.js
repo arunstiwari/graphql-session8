@@ -2,9 +2,8 @@ const {gql} = require('apollo-server');
 
 const typeDefs = gql`
   type Query {
-    hello: String,
     users: [User],
-    user(id: ID): User
+    user(id: ID!): User
   }
 
   type Mutation {
@@ -12,38 +11,40 @@ const typeDefs = gql`
   }
 
   type Subscription {
-      userAdded: User
+    userAdded: User
   }
 
-  input UserInput {
-    name: String
-    age: String
-  }
-
-  
+ input UserInput {
+   name: String
+   age: String
+ }
+ 
   interface User {
     id: ID!
     name: String
     age: String
   }
 
-  type CorporateUser implements User {
+  type CorporateUser implements User{
     id: ID!
     name: String
     age: String
     email: String
   }
-  type DefaultUser implements User {
-    id: ID!
-    name: String
-    age: String
-  }
-  type NormalUser implements User {
+
+  type NormalUser implements User{
     id: ID!
     name: String
     age: String
     facebookHandle: String
   }
+
+  type DefaultUser implements User{
+    id: ID!
+    name: String
+    age: String
+  }
+
 `;
 
 module.exports = typeDefs;

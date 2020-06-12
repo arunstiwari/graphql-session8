@@ -5,40 +5,37 @@ const instance = axios.create({
     timeout: 1000
 })
 
-const fetchUsers = async () => {
-    console.log('---inside fetchUsers ----');
-    
+const fetchUsers = async ()=> {
     try {
-        const {data} = await instance.get('/users');
-        return data;
+      const {data} = await instance.get('/users');
+      return data;
     } catch (e) {
         throw e;
     }
 }
 
 const createNewUser = async (args) => {
-    console.log('----args----',args);
     try {
-        const {data} = await instance.post('/users', {
-            name: args.user.name,
-            age: args.user.age
-        })
-        return data;
+     const {data} = await instance.post('/users', {
+         name: args.name,
+         age: args.age
+     })
+     return data;
     } catch (e) {
         throw e;
     }
-    
 }
 
-const fetchUserById = async (id) => {
-    console.log('---fetchUserById ---',id);
+const fetchUsersById = async (id) => {
+    console.log('--fetchUsersById ---',id);
+    
     try {
-        const {data} = await instance.get(`/users/${id}`);
-        return data;
+     const {data} = await instance.get(`/users/${id}`);
+       console.log(`--fetchUsersById ---${id}  --data ${data}`);
+     return data;
     } catch (e) {
-      throw e;
+        throw e;
     }
-    
 }
 
-module.exports = { fetchUsers, createNewUser, fetchUserById };
+module.exports = {fetchUsers, fetchUsersById,createNewUser};
