@@ -14,11 +14,16 @@ const fetchUsers = async ()=> {
     }
 }
 
-const createNewUser = async (args) => {
+const registerUser = async (args) => {
+    console.log('---user registration ----', args);
+    
+    const {name, age, email, password} = args; 
     try {
      const {data} = await instance.post('/users', {
-         name: args.name,
-         age: args.age
+         name,
+         age,
+         password,
+         email
      })
      return data;
     } catch (e) {
@@ -38,4 +43,18 @@ const fetchUsersById = async (id) => {
     }
 }
 
-module.exports = {fetchUsers, fetchUsersById,createNewUser};
+const login = async (email, password) => {
+    try {
+        const {data} = await instance.post('/login', {
+            email,
+            password
+        })
+        console.log('---data----',data);
+        
+        return data.token;
+    } catch (e) {
+        throw e;
+    }
+}
+ 
+module.exports = {fetchUsers, fetchUsersById,registerUser, login};
